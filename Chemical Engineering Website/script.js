@@ -31,11 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-        this.opacity = Math.random() * 0.5 + 0.1;
-        const colors = ['65,105,225', '46,204,113', '91,141,239', '39,174,96'];
+        this.size = Math.random() * 2.5 + 1;
+        this.speedX = (Math.random() - 0.5) * 1.1;
+        this.speedY = (Math.random() - 0.5) * 1.1;
+        this.opacity = Math.random() * 0.5 + 0.4;
+        // Bright, vivid versions of royal blue & green
+        const colors = ['100,149,255', '50,230,130', '130,170,255', '80,255,160', '70,120,240'];
         this.color = colors[Math.floor(Math.random() * colors.length)];
       }
       update() {
@@ -45,15 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            this.x -= dx * 0.008;
-            this.y -= dy * 0.008;
+          if (dist < 150) {
+            this.x -= dx * 0.015;
+            this.y -= dy * 0.015;
           }
         }
         if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
         if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
       }
       draw() {
+        // Outer glow
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color},${this.opacity * 0.12})`;
+        ctx.fill();
+        // Core dot
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
@@ -63,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initParticles() {
       particles = [];
-      const count = Math.min(Math.floor((canvas.width * canvas.height) / 8000), 200);
+      const count = Math.min(Math.floor((canvas.width * canvas.height) / 6000), 250);
       for (let i = 0; i < count; i++) particles.push(new Particle());
     }
     initParticles();
@@ -74,13 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
-            const opacity = (1 - dist / 130) * 0.15;
+          if (dist < 150) {
+            const opacity = (1 - dist / 150) * 0.35;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(65,105,225,${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(100,149,255,${opacity})`;
+            ctx.lineWidth = 0.7;
             ctx.stroke();
           }
         }
