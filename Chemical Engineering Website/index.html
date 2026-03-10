@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexaChem — Advanced Chemical Solutions</title>
+  <meta name="description"
+    content="NexaChem delivers high-purity industrial chemicals, lab reagents, and specialty compounds for research and manufacturing worldwide.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚗️</text></svg>">
+</head>
+
+<body>
+
+  <!-- Background Effects -->
+  <div class="hex-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="mainNav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">Nx</div>
+        <div class="logo-text">Nexa<span>Chem</span></div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-gradient-orb orb-1"></div>
+    <div class="hero-gradient-orb orb-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⚡ Precision Chemistry Since 2003</div>
+      <h1>
+        Engineering the Future<br>
+        of <span class="gradient-text">Chemical Innovation</span>
+      </h1>
+      <p>
+        Providing ultra-high-purity chemicals, advanced reagents, and custom compound solutions
+        to research labs, universities, and industrial manufacturers across 40+ countries.
+      </p>
+      <div class="hero-buttons">
+        <a href="products.html" class="btn btn-primary">⚗️ Explore Catalog</a>
+        <a href="contact.html" class="btn btn-outline">📞 Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED CHEMICALS ========== -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Featured Chemicals</h2>
+        <p>Our most requested high-purity compounds for research and manufacturing</p>
+      </div>
+      <div class="products-grid">
+        <!-- Card 1 -->
+        <div class="chem-card reveal" data-category="solvents">
+          <div class="chem-icon cyan">🧪</div>
+          <h3>Acetone</h3>
+          <div class="chem-formula">CH₃COCH₃ — CAS 67-64-1</div>
+          <p>ACS-grade acetone for laboratory and industrial cleaning, extraction, and synthesis.</p>
+          <div class="chem-meta">
+            <span class="chem-tag">Solvent</span>
+            <span class="chem-tag purity">≥99.5% Pure</span>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="chem-card reveal" data-category="acids">
+          <div class="chem-icon magenta">⚗️</div>
+          <h3>Sulfuric Acid</h3>
+          <div class="chem-formula">H₂SO₄ — CAS 7664-93-9</div>
+          <p>Concentrated sulfuric acid for chemical synthesis, pH control, and industrial processing.</p>
+          <div class="chem-meta">
+            <span class="chem-tag">Acid</span>
+            <span class="chem-tag purity">≥98% Pure</span>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="chem-card reveal" data-category="reagents">
+          <div class="chem-icon green">🔬</div>
+          <h3>Sodium Hydroxide</h3>
+          <div class="chem-formula">NaOH — CAS 1310-73-2</div>
+          <p>Reagent-grade caustic soda pellets for titration, neutralization, and organic synthesis.</p>
+          <div class="chem-meta">
+            <span class="chem-tag">Reagent</span>
+            <span class="chem-tag purity">≥97% Pure</span>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="chem-card reveal" data-category="specialty">
+          <div class="chem-icon amber">🧬</div>
+          <h3>Titanium Dioxide</h3>
+          <div class="chem-formula">TiO₂ — CAS 13463-67-7</div>
+          <p>Nano-grade TiO₂ for advanced coatings, photocatalysis, and materials research.</p>
+          <div class="chem-meta">
+            <span class="chem-tag">Specialty</span>
+            <span class="chem-tag purity">≥99.9% Pure</span>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="chem-card reveal" data-category="solvents">
+          <div class="chem-icon purple">💧</div>
+          <h3>Ethanol (Absolute)</h3>
+          <div class="chem-formula">C₂H₅OH — CAS 64-17-5</div>
+          <p>Anhydrous ethanol for sensitive analytical work, chromatography, and molecular biology.</p>
+          <div class="chem-meta">
+            <span class="chem-tag">Solvent</span>
+            <span class="chem-tag purity">≥99.8% Pure</span>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="chem-card reveal" data-category="polymers">
+          <div class="chem-icon cyan">🔗</div>
+          <h3>Polyethylene Glycol</h3>
+          <div class="chem-formula">H(OCH₂CH₂)ₙOH — CAS 25322-68-3</div>
+          <p>PEG 400/600 for drug formulation, cosmetics R&D, and industrial lubrication.</p>
+          <div class="chem-meta">
+            <span class="chem-tag">Polymer</span>
+            <span class="chem-tag purity">USP Grade</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: var(--space-2xl);" class="reveal">
+        <a href="products.html" class="btn btn-outline">View Full Catalog →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why NexaChem?</h2>
+        <p>Trusted by 2,000+ organizations worldwide for consistency, purity, and reliability</p>
+      </div>
+      <div class="features-grid">
+        <div class="glass-card feature-card reveal">
+          <div class="icon-wrap">🎯</div>
+          <h3>Ultra-High Purity</h3>
+          <p>Every batch undergoes multi-stage quality assurance with COA documentation and HPLC verification.</p>
+        </div>
+        <div class="glass-card feature-card reveal">
+          <div class="icon-wrap">🌍</div>
+          <h3>Global Logistics</h3>
+          <p>Temperature-controlled shipping to 40+ countries with hazmat-certified handling and full tracking.</p>
+        </div>
+        <div class="glass-card feature-card reveal">
+          <div class="icon-wrap">🔬</div>
+          <h3>Custom Synthesis</h3>
+          <p>Our R&D team can custom-synthesize compounds to your exact specifications and purity levels.</p>
+        </div>
+        <div class="glass-card feature-card reveal">
+          <div class="icon-wrap">📋</div>
+          <h3>Full Compliance</h3>
+          <p>ISO 9001, ISO 14001, and REACH compliant. Complete SDS documentation for every product.</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row reveal">
+        <div class="stat-item">
+          <div class="stat-number" data-count="500" data-suffix="+">0</div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="2000" data-suffix="+">0</div>
+          <div class="stat-label">Clients</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="40" data-suffix="+">0</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="20" data-suffix="">0</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">Nexa<span>Chem</span></div>
+          <p>Advancing science through precision chemistry. Trusted chemical supplier for research, industry, and
+            innovation since 2003.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="products.html">Solvents</a></li>
+            <li><a href="products.html">Acids & Bases</a></li>
+            <li><a href="products.html">Lab Reagents</a></li>
+            <li><a href="products.html">Specialty</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+18005551234">+1 (800) 555-1234</a></li>
+            <li><a href="mailto:info@nexachem.com">info@nexachem.com</a></li>
+            <li>742 Catalyst Drive, Houston, TX 77001</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span>NexaChem Industries</span>. All rights reserved.</p>
+        <p>ISO 9001 · ISO 14001 · REACH Compliant</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
