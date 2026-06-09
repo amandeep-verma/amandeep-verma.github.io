@@ -1,704 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amandeep | Senior Software Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #0A66C2;
-            --secondary: #00D4AA;
-            --dark: #000000;
-            --light: #FFFFFF;
-            --gray: #666666;
-            --light-gray: #F3F2EF;
-            --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            --hover-shadow: 0 4px 16px rgba(0,0,0,0.12);
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--light);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: var(--light);
-            padding: 60px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: move 20s linear infinite;
-        }
-        
-        @keyframes move {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .tagline {
-            font-size: 1.3em;
-            opacity: 0.95;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-        
-        .contact-info a {
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-info a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-        
-        .nav-tabs {
-            display: flex;
-            background: var(--light-gray);
-            border-bottom: 2px solid #e0e0e0;
-            overflow-x: auto;
-        }
-        
-        .nav-tab {
-            padding: 20px 30px;
-            background: none;
-            border: none;
-            font-size: 1em;
-            cursor: pointer;
-            color: var(--gray);
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            position: relative;
-        }
-        
-        .nav-tab:hover {
-            color: var(--primary);
-        }
-        
-        .nav-tab.active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .nav-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--primary);
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        h2 {
-            font-size: 2em;
-            color: var(--primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--light-gray);
-        }
-        
-        h3 {
-            font-size: 1.3em;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-        
-        .experience-item, .project-item {
-            background: var(--light-gray);
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .experience-item:hover, .project-item:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-2px);
-        }
-        
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .company-info {
-            flex: 1;
-        }
-        
-        .company-name {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2em;
-        }
-        
-        .job-title {
-            color: var(--gray);
-            margin-top: 5px;
-        }
-        
-        .date {
-            color: var(--gray);
-            font-style: italic;
-        }
-        
-        .achievements {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .achievements li {
-            padding-left: 30px;
-            margin-bottom: 12px;
-            position: relative;
-            line-height: 1.8;
-        }
-        
-        .achievements li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        
-        .metric {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: var(--light);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            display: inline-block;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .skill-category {
-            background: var(--light-gray);
-            padding: 20px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--hover-shadow);
-        }
-        
-        .skill-category h4 {
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .skill-tag {
-            background: var(--light);
-            color: var(--gray);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-tag:hover {
-            background: var(--primary);
-            color: var(--light);
-            transform: translateY(-2px);
-        }
-        
-        .summary-text {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: var(--gray);
-            padding: 20px;
-            background: var(--light-gray);
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        
-        .highlight {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .certification-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .certification-item {
-            background: var(--light-gray);
-            padding: 20px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .certification-item:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2em; }
-            .content { padding: 20px; }
-            .nav-tab { padding: 15px 20px; }
-            .experience-header { flex-direction: column; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Amandeep - Senior Software Engineer with 6+ years of experience in distributed backend architectures, InsurTech policy systems, and AI/ML pipelines.">
+  <meta name="author" content="Amandeep">
+  <meta name="keywords" content="Amandeep, Software Engineer, Backend Engineer, Python, Java, FastAPI, Spring Boot, InsurTech, AI, Machine Learning">
+  
+  <title>Amandeep | Senior Software Engineer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1>Amandeep</h1>
-                <p class="tagline">Senior Software Engineer | Building AI-Powered Solutions</p>
-                <p style="opacity: 0.9; margin-bottom: 20px;">6+ Years Experience | Enterprise & Startup | Python, Spring Boot, Microservices</p>
-                <div class="contact-info">
-                    <a href="mailto:amandeepverma.tech@gmail.com">📧 Email</a>
-                    <a href="https://www.linkedin.com/in/amandeepverma/" target="_blank">💼 LinkedIn</a>
-                    <a href="https://github.com/amandeep-verma" target="_blank">💻 GitHub</a>
-                    <a href="#">📍 Harrison, NJ</a>
-                </div>
-            </div>
-        </header>
-        
-        <nav class="nav-tabs">
-            <button class="nav-tab active" data-tab="summary">Summary</button>
-            <button class="nav-tab" data-tab="experience">Experience</button>
-            <button class="nav-tab" data-tab="projects">Key Projects</button>
-            <button class="nav-tab" data-tab="skills">Skills</button>
-            <button class="nav-tab" data-tab="education">Education</button>
-        </nav>
-        
-        <div class="content">
-            <!-- Summary Tab -->
-            <div id="summary" class="tab-content active">
-                <div class="section">
-                    <h2>Professional Summary</h2>
-                    <div class="summary-text">
-                        Results-driven Senior Software Engineer with <span class="highlight">6+ years of experience</span> architecting scalable solutions across enterprise and startup environments. Recognized as <span class="highlight">Employee of the Month (July 2024)</span> for exceptional contributions to system optimization and team productivity.
-                        <br><br>
-                        Currently seeking opportunities where I can leverage my expertise in <span class="highlight">Python, microservices architecture, and AI/ML implementations</span> to drive meaningful business impact. Proven track record of reducing processing times by up to 80%, improving system reliability, and mentoring cross-functional teams.
-                    </div>
-                    
-                    <h3 style="margin-top: 30px;">Key Achievements</h3>
-                    <ul class="achievements">
-                        <li>Architected automated underwriting systems processing <span class="metric">10,000+ policies</span> annually</li>
-                        <li>Reduced policy processing time by <span class="metric">80%</span> through AI-powered automation</li>
-                        <li>Built developer tools that increased team productivity by <span class="metric">50%</span></li>
-                        <li>Led integration of 5+ third-party services while maintaining regulatory compliance</li>
-                        <li>Mentored and onboarded <span class="metric">5+ developers</span> and product managers</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Experience Tab -->
-            <div id="experience" class="tab-content">
-                <div class="section">
-                    <h2>Professional Experience</h2>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-info">
-                                <div class="company-name">Afficiency</div>
-                                <div class="job-title">Senior Software Engineer</div>
-                            </div>
-                            <div class="date">Nov 2022 - Sep 2024</div>
-                        </div>
-                        <p style="margin-bottom: 15px; color: var(--gray);">NYC-based Insurtech Startup | $2.5M ARR | Processing 10,000+ policies annually</p>
-                        <ul class="achievements">
-                            <li>Designed and implemented <span class="metric">automated underwriting model</span> reducing policy processing time by <span class="metric">80%</span> and driving <span class="metric">30% increase</span> in sales conversions</li>
-                            <li>Integrated critical third-party services (HIPAA, LABPIQ, MIB, ECR, GIACT fraud detection) through Flask-based APIs with Redis caching</li>
-                            <li>Developed comprehensive multi-utility library with application replay and React dashboards, accelerating issue resolution by <span class="metric">50%</span> across teams</li>
-                            <li>Pioneered AI/ML implementations using Ollama and Mistral, reducing SLA violations by <span class="metric">70%</span></li>
-                            <li>Mentored 5+ developers and product managers on system architecture and technical roadmaps</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-info">
-                                <div class="company-name">Capgemini</div>
-                                <div class="job-title">Software Engineer</div>
-                            </div>
-                            <div class="date">Feb 2021 - Oct 2022</div>
-                        </div>
-                        <p style="margin-bottom: 15px; color: var(--gray);">Fortune 500 Insurance Client | Enterprise Modernization</p>
-                        <ul class="achievements">
-                            <li>Enhanced and modernized Underwriting Management System on Spring, reducing policy issuance time by <span class="metric">25%</span></li>
-                            <li>Optimized Spring Boot + Hibernate microservices, boosting system responsiveness by <span class="metric">15%</span></li>
-                            <li>Achieved <span class="metric">99.9% uptime</span> for business-critical workflows through infrastructure improvements</li>
-                            <li>Led collaboration with 8+ member cross-functional teams using Agile methodology</li>
-                            <li>Streamlined CI/CD pipelines supporting enterprise-level deployments</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-info">
-                                <div class="company-name">ATEC Wireless</div>
-                                <div class="job-title">Software Developer</div>
-                            </div>
-                            <div class="date">Aug 2018 - Jan 2021</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Implemented analytical dashboard backend on Spring Boot using REST APIs</li>
-                            <li>Reduced Tomcat server load by <span class="metric">15%</span> through intelligent caching</li>
-                            <li>Fixed <span class="metric">50+ SQL injection</span> vulnerabilities following security best practices</li>
-                            <li>Achieved <span class="metric">80% JUnit code coverage</span> across critical modules</li>
-                            <li>Integrated social media connectors (Twitter, Facebook, WhatsApp) to the application</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-info">
-                                <div class="company-name">New Jersey Institute of Technology</div>
-                                <div class="job-title">Teaching Assistant</div>
-                            </div>
-                            <div class="date">Sep 2019 - May 2021</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Taught Data Structure and Algorithms to undergraduate students</li>
-                            <li>Automated testing & grading using Bash scripts for CS370 (Introduction to AI)</li>
-                            <li>Assisted faculty in course preparation and project evaluation</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Projects Tab -->
-            <div id="projects" class="tab-content">
-                <div class="section">
-                    <h2>Key Projects & Innovations</h2>
-                    
-                    <div class="project-item">
-                        <h3>🔄 Application Replay System</h3>
-                        <p style="color: var(--gray); margin-bottom: 15px;">Production Debugging & Testing Automation Tool</p>
-                        <p style="margin-bottom: 15px;">Designed and built a one-click application replay system that revolutionized debugging and testing processes. What started as a concept for a single product evolved into a comprehensive tool used across all environments.</p>
-                        <ul class="achievements">
-                            <li><strong>Problem Solved:</strong> Eliminated hours of manual work recreating production bugs</li>
-                            <li><strong>Impact:</strong> <span class="metric">50% reduction</span> in debugging time across all teams</li>
-                            <li><strong>Scale:</strong> Generic architecture supporting all products and environments</li>
-                            <li><strong>Tech Stack:</strong> Python, Flask, Redis, React dashboards</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3>🤖 AI-Powered Underwriting Engine</h3>
-                        <p style="color: var(--gray); margin-bottom: 15px;">Automated Insurance Decision System</p>
-                        <p style="margin-bottom: 15px;">Architected an intelligent underwriting system that transformed manual insurance processes into automated workflows.</p>
-                        <ul class="achievements">
-                            <li><strong>Performance:</strong> <span class="metric">80% reduction</span> in processing time</li>
-                            <li><strong>Scale:</strong> Processes <span class="metric">10,000+ policies</span> annually</li>
-                            <li><strong>Revenue Impact:</strong> <span class="metric">30% increase</span> in sales conversions</li>
-                            <li><strong>Tech Stack:</strong> Python, Ollama, Mistral, Flask, PostgreSQL</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3>🔌 Enterprise Integration Platform</h3>
-                        <p style="color: var(--gray); margin-bottom: 15px;">Third-Party Services Orchestration</p>
-                        <p style="margin-bottom: 15px;">Built a robust integration layer connecting multiple critical third-party services while maintaining strict regulatory compliance.</p>
-                        <ul class="achievements">
-                            <li><strong>Services Integrated:</strong> HIPAA consent, LABPIQ, MIB, ECR, GIACT fraud detection</li>
-                            <li><strong>Performance:</strong> Real-time decisioning with <span class="metric"><100ms latency</span></li>
-                            <li><strong>Reliability:</strong> <span class="metric">99.9% uptime</span> for critical workflows</li>
-                            <li><strong>Tech Stack:</strong> Flask, Redis, REST APIs, AWS</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3>📊 Network Performance Optimizer</h3>
-                        <p style="color: var(--gray); margin-bottom: 15px;">ML-Based Mobile Tower Configuration</p>
-                        <p style="margin-bottom: 15px;">Built an automatic module using Python that recommends configuration changes for mobile tower optimization.</p>
-                        <ul class="achievements">
-                            <li><strong>Algorithm:</strong> K-means clustering using scikit-learn</li>
-                            <li><strong>Impact:</strong> <span class="metric">39.13% improvement</span> in network KPIs</li>
-                            <li><strong>UI:</strong> Interactive dashboard using Dash framework</li>
-                            <li><strong>Tech Stack:</strong> Python, scikit-learn, Dash, pandas</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Skills Tab -->
-            <div id="skills" class="tab-content">
-                <div class="section">
-                    <h2>Technical Skills</h2>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Languages</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Java</span>
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">TypeScript</span>
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Bash</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Backend & Frameworks</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Flask</span>
-                                <span class="skill-tag">Spring Boot</span>
-                                <span class="skill-tag">FastAPI</span>
-                                <span class="skill-tag">Django</span>
-                                <span class="skill-tag">Node.js</span>
-                                <span class="skill-tag">Hibernate</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Frontend</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">React</span>
-                                <span class="skill-tag">Redux</span>
-                                <span class="skill-tag">HTML5</span>
-                                <span class="skill-tag">CSS3</span>
-                                <span class="skill-tag">Material-UI</span>
-                                <span class="skill-tag">Dash</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Cloud & DevOps</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">AWS</span>
-                                <span class="skill-tag">Kubernetes</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">Rancher</span>
-                                <span class="skill-tag">CI/CD</span>
-                                <span class="skill-tag">Jenkins</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Databases & Caching</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">PostgreSQL</span>
-                                <span class="skill-tag">MySQL</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">Redis</span>
-                                <span class="skill-tag">Elasticsearch</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>AI/ML & Data</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Ollama</span>
-                                <span class="skill-tag">Mistral</span>
-                                <span class="skill-tag">scikit-learn</span>
-                                <span class="skill-tag">pandas</span>
-                                <span class="skill-tag">NumPy</span>
-                                <span class="skill-tag">TensorFlow</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 style="margin-top: 40px;">Certifications & Achievements</h3>
-                    <div class="certification-grid">
-                        <div class="certification-item">
-                            <h4>🏆 Employee of the Month</h4>
-                            <p style="color: var(--gray);">July 2024 - Afficiency</p>
-                            <p>Recognized for exceptional contributions to system optimization and team productivity</p>
-                        </div>
-                        
-                        <div class="certification-item">
-                            <h4>📚 Technical Leadership</h4>
-                            <p style="color: var(--gray);">Ongoing</p>
-                            <p>Mentored 5+ developers and product managers on system architecture and best practices</p>
-                        </div>
-                        
-                        <div class="certification-item">
-                            <h4>🎓 Academic Excellence</h4>
-                            <p style="color: var(--gray);">NJIT</p>
-                            <p>Teaching Assistant for Data Structures & Algorithms and AI courses</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Education Tab -->
-            <div id="education" class="tab-content">
-                <div class="section">
-                    <h2>Education</h2>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-info">
-                                <div class="company-name">New Jersey Institute of Technology</div>
-                                <div class="job-title">Master of Science in Computer Science</div>
-                            </div>
-                            <div class="date">2019 - 2021</div>
-                        </div>
-                        <p style="margin-bottom: 15px;"><strong>Relevant Coursework:</strong></p>
-                        <ul class="achievements">
-                            <li>Cloud Computing & Big Data Analytics</li>
-                            <li>Data Mining & Machine Learning</li>
-                            <li>Software Project Management</li>
-                            <li>System Modeling & Simulation</li>
-                            <li>Design and Analysis of Algorithms</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div class="company-info">
-                                <div class="company-name">Bachelor of Technology</div>
-                                <div class="job-title">Computer Science & Engineering</div>
-                            </div>
-                            <div class="date">2014 - 2018</div>
-                        </div>
-                        <p style="margin-bottom: 15px;"><strong>Core Competencies:</strong></p>
-                        <ul class="achievements">
-                            <li>Object-Oriented Programming & Design Patterns</li>
-                            <li>Database Management Systems</li>
-                            <li>Computer Architecture</li>
-                            <li>Software Testing & Quality Assurance</li>
-                            <li>UNIX & Shell Scripting</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all nav tabs
-            const navTabs = document.querySelectorAll('.nav-tab');
-            
-            // Add click event listener to each tab
-            navTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Get the target tab name from data attribute
-                    const tabName = this.getAttribute('data-tab');
-                    
-                    // Hide all tab contents
-                    const allTabs = document.querySelectorAll('.tab-content');
-                    allTabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Remove active class from all nav tabs
-                    navTabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Show the selected tab
-                    const selectedTab = document.getElementById(tabName);
-                    if (selectedTab) {
-                        selectedTab.classList.add('active');
-                    }
-                    
-                    // Add active class to clicked nav tab
-                    this.classList.add('active');
-                });
-            });
-        });
-    </script>
-</body>
+<body class="dark-theme">
 
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">
+        <span class="logo-text">Amandeep<span class="accent">.</span></span>
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="assets/Fnu_Amandeep_Resume.pdf" target="_blank" class="btn btn-primary btn-sm">
+          Resume
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-bg-accent"></div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <p class="hero-greeting">Hi, I'm Amandeep</p>
+          <h1 class="hero-title">Architecting <span class="text-gradient">Distributed Systems</span> & <span class="text-gradient">AI Pipelines</span></h1>
+          <p class="hero-description">
+            Senior Software Engineer with 6+ years driving business impact in Fintech and InsurTech. I specialize in building scalable, event-driven backends and integrating LLMs to solve complex challenges.
+          </p>
+          <div class="hero-ctas">
+            <a href="#experience" class="btn btn-primary">View Experience</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="stat-card fade-up" style="transition-delay: 0.1s">
+            <div class="stat-value">80%</div>
+            <div class="stat-label">Policy Processing Speedup</div>
+          </div>
+          <div class="stat-card fade-up" style="transition-delay: 0.2s">
+            <div class="stat-value">$200K</div>
+            <div class="stat-label">Annual Infra Savings</div>
+          </div>
+          <div class="stat-card fade-up" style="transition-delay: 0.3s">
+            <div class="stat-value">$5.5M+</div>
+            <div class="stat-label">ARR Driven via Integrations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title">Professional Experience</h2>
+          <p class="section-subtitle">Driving technical excellence and business value across startups and enterprises.</p>
+        </div>
+        
+        <div class="experience-timeline">
+          <!-- Job 1 -->
+          <div class="experience-card fade-up">
+            <div class="exp-header">
+              <div class="exp-title-group">
+                <h3>Senior Software Engineer</h3>
+                <span class="exp-company">Independent (MatchKinetics AI)</span>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Oct 2025 – Present</span>
+              </div>
+            </div>
+            <p class="exp-summary">Building an end-to-end job data extraction and candidate matching platform powered by LLMs.</p>
+            <ul class="exp-bullets">
+              <li>Engineered a highly concurrent LLM enrichment pipeline using <strong>OpenAI GPT-4o</strong> to extract structured JSON schemas from unstructured job descriptions across 8 platforms.</li>
+              <li>Designed fault-tolerant crawling infrastructure with bot-detection-aware request strategies, sustaining <strong>95% crawler reliability</strong>.</li>
+              <li>Built decoupled matching engine and resume parser delivering sub-second match scoring across <strong>10,000+ live job listings</strong>.</li>
+              <li>Developed responsive React/TypeScript frontend with FastAPI backend for real-time UI rendering.</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">FastAPI</span>
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">OpenAI GPT-4o</span>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="experience-card fade-up">
+            <div class="exp-header">
+              <div class="exp-title-group">
+                <h3>Senior Software Engineer</h3>
+                <span class="exp-company">Afficiency</span>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Jan 2024 – Oct 2025</span>
+              </div>
+            </div>
+            <p class="exp-summary">Series A InsurTech startup. Recognized as Employee of the Month (July 2024).</p>
+            <ul class="exp-bullets">
+              <li>Architected automated Underwriting model, reducing policy processing time by <strong>80%</strong> and driving 10,000+ policies annually (<strong>$2.5M+ ARR</strong>).</li>
+              <li>Implemented AI-based log summarizer using <strong>Ollama</strong> and <strong>Mistral</strong>, reducing SLA violations by <strong>70%</strong>.</li>
+              <li>Led AWS-to-Hetzner cloud migration with zero downtime, reducing infrastructure costs by <strong>$180K–$200K annually</strong>.</li>
+              <li>Spearheaded reusable multi-utility library via AWS/Rancher with a React-based replay dashboard, accelerating issue resolution by <strong>50%</strong>.</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Flask</span>
+              <span class="tech-pill">Redis</span>
+              <span class="tech-pill">AWS</span>
+              <span class="tech-pill">Ollama</span>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="experience-card fade-up">
+            <div class="exp-header">
+              <div class="exp-title-group">
+                <h3>Software Engineer</h3>
+                <span class="exp-company">Capgemini</span>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">July 2021 – Dec 2023</span>
+              </div>
+            </div>
+            <p class="exp-summary">Large enterprise environment modernizing core insurance systems.</p>
+            <ul class="exp-bullets">
+              <li>Developed an Underwriting Management System using <strong>Spring Boot</strong>, reducing policy issuance time by <strong>25%</strong> for 500+ daily transactions.</li>
+              <li>Maintained microservices architecture with Spring Boot & Hibernate, boosting responsiveness by <strong>15%</strong> with <strong>99.9% uptime</strong>.</li>
+              <li>Delivered seamless integrations with 10+ external systems via RESTful and SOAP APIs.</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-pill">Java</span>
+              <span class="tech-pill">Spring Boot</span>
+              <span class="tech-pill">Hibernate</span>
+              <span class="tech-pill">Jenkins</span>
+            </div>
+          </div>
+          
+          <!-- Job 4 -->
+          <div class="experience-card fade-up">
+            <div class="exp-header">
+              <div class="exp-title-group">
+                <h3>Software Engineer</h3>
+                <span class="exp-company">ATEC Wireless</span>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Jan 2020 – May 2020</span>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Built a Python-based recommendation engine for mobile tower signal optimization using <strong>scikit-learn</strong> k-means clustering.</li>
+              <li>Achieved <strong>39% improvement</strong> in network KPIs across 50+ cell towers.</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">scikit-learn</span>
+              <span class="tech-pill">Dash</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">A showcase of complex systems and architectures I've designed.</p>
+        </div>
+        
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card fade-up">
+            <div class="project-icon"><i class="fas fa-brain"></i></div>
+            <h3 class="project-title">MatchKinetics AI Platform</h3>
+            <p class="project-desc">A real-time job-seeking data aggregator powered by OpenAI GPT-4o APIs that extracts granular requirements and scores candidates using an index matcher.</p>
+            <div class="project-highlights">
+              <span><i class="fas fa-bolt"></i> Sub-second Match Scores</span>
+              <span><i class="fas fa-shield-halved"></i> Bot-Detection Bypass</span>
+            </div>
+            <div class="tech-stack small">
+              <span class="tech-pill">FastAPI</span><span class="tech-pill">React</span><span class="tech-pill">GPT-4o</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card fade-up" style="transition-delay: 0.1s">
+            <div class="project-icon"><i class="fas fa-shield-heart"></i></div>
+            <h3 class="project-title">Automated Underwriting Engine</h3>
+            <p class="project-desc">Automated compliance underwriting engine that processes carrier health policies, validating credentials across HIPAA registries.</p>
+            <div class="project-highlights">
+              <span><i class="fas fa-chart-line"></i> $2.5M+ ARR Driven</span>
+              <span><i class="fas fa-stopwatch"></i> 80% Faster Approvals</span>
+            </div>
+            <div class="tech-stack small">
+              <span class="tech-pill">Flask</span><span class="tech-pill">Redis</span><span class="tech-pill">AWS</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card fade-up" style="transition-delay: 0.2s">
+            <div class="project-icon"><i class="fas fa-server"></i></div>
+            <h3 class="project-title">Application Replay Dashboard</h3>
+            <p class="project-desc">A transaction capture and sandbox simulation console that records logs and repeats failed requests in a local testing stack.</p>
+            <div class="project-highlights">
+              <span><i class="fas fa-bug-slash"></i> 50% Debugging Time Cut</span>
+            </div>
+            <div class="tech-stack small">
+              <span class="tech-pill">Python</span><span class="tech-pill">React</span><span class="tech-pill">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-subtitle">Core competencies across the stack, focusing on backend scalability and AI integration.</p>
+        </div>
+        
+        <div class="skills-grid">
+          <div class="skill-category fade-up">
+            <h3><i class="fas fa-code"></i> Languages</h3>
+            <div class="skill-list">
+              <span>Python</span><span>Java</span><span>JavaScript / TypeScript</span><span>C / C++</span><span>Scala</span><span>R</span>
+            </div>
+          </div>
+          <div class="skill-category fade-up">
+            <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+            <div class="skill-list">
+              <span>FastAPI</span><span>Flask</span><span>Spring Boot</span><span>React</span><span>Hibernate</span>
+            </div>
+          </div>
+          <div class="skill-category fade-up">
+            <h3><i class="fas fa-database"></i> Databases</h3>
+            <div class="skill-list">
+              <span>MySQL</span><span>Redis</span><span>MongoDB</span><span>SQLite (WAL)</span><span>HBase</span>
+            </div>
+          </div>
+          <div class="skill-category fade-up">
+            <h3><i class="fas fa-robot"></i> AI / ML</h3>
+            <div class="skill-list">
+              <span>OpenAI GPT-4o</span><span>Ollama</span><span>Mistral</span><span>scikit-learn</span>
+            </div>
+          </div>
+          <div class="skill-category fade-up">
+            <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+            <div class="skill-list">
+              <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Jenkins CI/CD</span><span>Rancher</span>
+            </div>
+          </div>
+          <div class="skill-category fade-up">
+            <h3><i class="fas fa-lock"></i> Security & Tools</h3>
+            <div class="skill-list">
+              <span>HashiCorp Vault</span><span>SonarQube</span><span>OWASP</span><span>Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="section-title">Education & Academic Experience</h2>
+        </div>
+        
+        <div class="edu-grid">
+          <div class="edu-column fade-up">
+            <h3 class="column-title">Degrees</h3>
+            <div class="edu-card">
+              <div class="edu-card-header">
+                <h4>M.S. in Computer Science</h4>
+                <span class="edu-date">Jan 2019 – Dec 2020</span>
+              </div>
+              <p class="edu-school">New Jersey Institute of Technology</p>
+            </div>
+            <div class="edu-card">
+              <div class="edu-card-header">
+                <h4>B.E. in Computer Science</h4>
+                <span class="edu-date">Aug 2013 – Jul 2017</span>
+              </div>
+              <p class="edu-school">Dayananda Sagar College of Engineering</p>
+            </div>
+          </div>
+          
+          <div class="edu-column fade-up" style="transition-delay: 0.1s">
+            <h3 class="column-title">Teaching</h3>
+            <div class="edu-card">
+              <div class="edu-card-header">
+                <h4>Teaching Assistant</h4>
+                <span class="edu-date">Jan – Dec 2020</span>
+              </div>
+              <p class="edu-school">New Jersey Institute of Technology</p>
+              <p class="edu-desc">Assisted in Data Structures & Algorithms, and Intro to AI. Scripted automated grading pipelines using Bash, shrinking grading tasks by 70%.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-bio fade-up" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-color);">
+          <h3 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.2rem;">Beyond Engineering</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6;">
+            I bring a blend of analytical rigor and creativity to my work. Fluent in 4 languages, I have a strong foundation in mathematics, alongside interests in pencil sketching, digital arts, and poetry. For me, solving challenging problems isn't just a career—it's a lifelong pursuit.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="footer">
+    <div class="container footer-container">
+      <div class="footer-cta fade-up">
+        <h2>Let's build something scalable.</h2>
+        <p>I'm always open to discussing senior backend engineering or AI integration roles.</p>
+      </div>
+      
+      <div class="footer-links fade-up">
+        <a href="mailto:amandeepverma.tech@gmail.com" class="social-link">
+          <div class="social-icon"><i class="fas fa-envelope"></i></div>
+          <span>Email Me</span>
+        </a>
+        <a href="https://www.linkedin.com/in/amandeepverma/" target="_blank" class="social-link">
+          <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/amandeep-verma" target="_blank" class="social-link">
+          <div class="social-icon"><i class="fab fa-github"></i></div>
+          <span>GitHub</span>
+        </a>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Amandeep. Designed and built with intent.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
